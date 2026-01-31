@@ -34,4 +34,4 @@ target_link_libraries(testsidemade PRIVATE Boost::unit_test_framework Eigen3::Ei
 
 add_test(NAME "MatrixSolverTest" COMMAND testsidemade --run_test=MatrixSolverTests/*)
 add_test(NAME "ConfigurationTest" COMMAND testsidemade --run_test=ConfigurationTests/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests)
-add_test(NAME "MatrixIOTest" COMMAND testsidemade --run_test=MatrixIOTests/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests)
+add_test(NAME "MatrixIOTest" COMMAND testsidemade --run_test=MatrixIOTests/*)
