@@ -32,8 +32,6 @@ target_include_directories(testsidemade PRIVATE ${PROJECT_SOURCE_DIR}/src)
 
 target_link_libraries(testsidemade PRIVATE Boost::unit_test_framework Eigen3::Eigen yaml-cpp)
 
-target_compile_definitions(testsidemade PRIVATE BOOST_TEST_MODULE=AllTests)
-
 add_test(NAME "MatrixSolverTest" COMMAND testsidemade --run_test=MatrixSolverTests/*)
 add_test(NAME "ConfigurationTest" COMMAND testsidemade --run_test=ConfigurationTests/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests)
 add_test(NAME "MatrixIOTest" COMMAND testsidemade --run_test=MatrixIOTests/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests)
