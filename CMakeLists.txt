@@ -30,6 +30,6 @@ target_include_directories(testsidemade PRIVATE ${PROJECT_SOURCE_DIR}/src)
 
 target_link_libraries(testsidemade PRIVATE Boost::unit_test_framework Eigen3::Eigen yaml-cpp)
 
-add_test(NAME "MatrixSolverTests" COMMAND ${CMAKE_CURRENT_BINARY_DIR}/testsidemade --run_test=MatrixSolverTests/*)
-add_test(NAME "ConfigurationTests" COMMAND ${CMAKE_CURRENT_BINARY_DIR}/testsidemade --run_test=ConfigurationTests/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests)
-add_test(NAME "MatrixIOTests" COMMAND ${CMAKE_CURRENT_BINARY_DIR}/testsidemade --run_test=MatrixIOTests/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build)
+add_test(NAME "MatrixSolverTest" COMMAND ${CMAKE_CURRENT_BINARY_DIR}/testsidemade --run_test=MatrixSolverTest/*)
+add_test(NAME "ConfigurationTest" COMMAND ${CMAKE_CURRENT_BINARY_DIR}/testsidemade --run_test=ConfigurationTest/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests)
+add_test(NAME "MatrixIOTest" COMMAND ${CMAKE_CURRENT_BINARY_DIR}/testsidemade --run_test=MatrixIOTest/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build)
