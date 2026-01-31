@@ -11,7 +11,7 @@ BOOST_AUTO_TEST_SUITE(MatrixIOTests)
 
 BOOST_AUTO_TEST_CASE(OpenDataParsesCSVCorrectly)
 {
-  const std::string testFile = "test_opendata.csv";
+  const std::string testFile = "data/m3.csv";
   const int         size     = 2;
 
   std::ofstream ofs(testFile);

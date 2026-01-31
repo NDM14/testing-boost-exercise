@@ -26,10 +26,14 @@ file(GLOB_RECURSE TEST_FILES CONFIGURE_DEPENDS tests/*.cpp)
 
 add_executable(testsidemade "${TEST_FILES}" "${SRC_FILES}")
 
+set_property(TARGET testsidemade PROPERTY CXX_STANDARD 11)
+
 target_include_directories(testsidemade PRIVATE ${PROJECT_SOURCE_DIR}/src)
 
 target_link_libraries(testsidemade PRIVATE Boost::unit_test_framework Eigen3::Eigen yaml-cpp)
 
-add_test(NAME "MatrixSolverTest" COMMAND ${CMAKE_CURRENT_BINARY_DIR}/testsidemade --run_test=MatrixSolverTest/*)
-add_test(NAME "ConfigurationTest" COMMAND ${CMAKE_CURRENT_BINARY_DIR}/testsidemade --run_test=ConfigurationTest/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests)
-add_test(NAME "MatrixIOTest" COMMAND ${CMAKE_CURRENT_BINARY_DIR}/testsidemade --run_test=MatrixIOTest/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/build)
+target_compile_definitions(testsidemade PRIVATE BOOST_TEST_MODULE=AllTests)
+
+add_test(NAME "MatrixSolverTest" COMMAND testsidemade --run_test=MatrixSolverTests/*)
+add_test(NAME "ConfigurationTest" COMMAND testsidemade --run_test=ConfigurationTests/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests)
+add_test(NAME "MatrixIOTest" COMMAND testsidemade --run_test=MatrixIOTests/* WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}/tests)
